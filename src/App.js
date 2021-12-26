@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Header from './components/Header'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
+import TaskDetails from './components/TaskDetails'
 import './App.css'
 
 const App = () => {
@@ -55,17 +57,28 @@ const App = () => {
   }
 
   return (
-    <>
+    <Router>
       <div className="container">
         <Header />
-        <AddTask handleTaskAddition={handleTaskAddition} />
-        <Tasks
-          handleTaskClick={handleTaskClick}
-          tasks={tasks}
-          handleTaskDelete={handleTaskDelete}
+        <Route
+          path="/"
+          exact
+          render={() => (
+            <>
+              <AddTask handleTaskAddition={handleTaskAddition} />
+              <Tasks
+                handleTaskClick={handleTaskClick}
+                tasks={tasks}
+                handleTaskDelete={handleTaskDelete}
+              />
+            </>
+          )}
         />
+        <switch>
+          <Route path="/:taskTitle" exact component={TaskDetails} />
+        </switch>
       </div>
-    </>
+    </Router>
   )
 }
 
