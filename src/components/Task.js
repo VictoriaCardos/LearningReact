@@ -1,9 +1,16 @@
 import React from 'react'
-import { CgClose } from 'react-icons/cg'
+import { CgClose, CgInfo } from 'react-icons/cg'
+import { useHistory } from 'react-router-dom'
 
 import './Task.css'
 
 const Task = ({ task, handleTaskClick, handleTaskDelete }) => {
+  const history = useHistory()
+
+  const handleTaskDetailsClick = () => {
+    history.push(`/${task.title}`)
+  }
+
   return (
     <div
       className="task-container"
@@ -26,6 +33,13 @@ const Task = ({ task, handleTaskClick, handleTaskDelete }) => {
           onClick={() => handleTaskDelete(task.id)}
         >
           <CgClose />
+        </button>
+
+        <button
+          className="see-task-details-button"
+          onClick={handleTaskDetailsClick}
+        >
+          <CgInfo />
         </button>
       </div>
     </div>
