@@ -8,6 +8,14 @@ const AddTask = ({ handleTaskAddition }) => {
   const handleInputChange = e => {
     setInputData(e.target.value)
   }
+  const verifyInput = () => {
+    if (inputData !== '') {
+      handleTaskClick()
+      console.log(inputData)
+    } else {
+      alert('insira alguma tarefa!')
+    }
+  }
 
   const handleTaskClick = () => {
     handleTaskAddition(inputData)
@@ -23,7 +31,7 @@ const AddTask = ({ handleTaskAddition }) => {
         type="text"
       />
       <div className="add-task-button-container">
-        <Button onClick={handleTaskClick}>Adicionar</Button>
+        <Button onClick={verifyInput}>Adicionar</Button>
       </div>
     </div>
   )
