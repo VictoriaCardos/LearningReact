@@ -69,9 +69,9 @@ const App = () => {
             </>
           )}
         />
-        <switch>
+        <>
           <Route path="/:taskTitle" exact component={TaskDetails} />
-        </switch>
+        </>
       </div>
     </Router>
   )
