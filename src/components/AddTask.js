@@ -8,12 +8,12 @@ const AddTask = ({ handleTaskAddition }) => {
   const handleInputChange = e => {
     setInputData(e.target.value)
   }
+
   const verifyInput = () => {
     if (inputData !== '') {
       handleTaskClick()
-      console.log(inputData)
     } else {
-      alert('insira alguma tarefa!')
+      alert('Insira uma tarefa primeiro!')
     }
   }
 
