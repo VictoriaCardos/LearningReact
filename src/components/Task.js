@@ -20,7 +20,7 @@ const Task = ({ task, handleTaskClick, handleTaskDelete }) => {
               borderLeft: '6px solid chartreuse',
               textDecoration: 'line-through'
             }
-          : {}
+          : { borderLeft: '6px solid red' }
       }
     >
       <div className="task-title" onClick={() => handleTaskClick(task.id)}>
